@@ -39,6 +39,7 @@
     <junit-version>4.12</junit-version>
     <mockito-version>1.10.19</mockito-version>
     <jython-version>2.7.0</jython-version>
+    <evosuite-version>1.0.6</evosuite-version>
 
     <!-- Plugin versions -->
     <maven-bundle-plugin-version>3.2.0</maven-bundle-plugin-version>
@@ -73,7 +74,13 @@
         <groupId>org.python</groupId>
         <artifactId>jython-standalone</artifactId>
         <version>${jython-version}</version>
-      <scope>test</scope>
+        <scope>test</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.evosuite</groupId>
+        <artifactId>evosuite-standalone-runtime</artifactId>
+        <version>${evosuite-version}</version>
+        <!--<scope>test</scope>-->
       </dependency>
     </dependencies>
   </dependencyManagement>
@@ -213,6 +220,22 @@
       </plugin>
     </plugins>
   </reporting>
+
+    <repositories>
+   <repository>
+     <id>EvoSuite</id>
+     <name>EvoSuite Repository</name>
+     <url>http://www.evosuite.org/m2</url>
+   </repository>
+  </repositories>
+
+  <pluginRepositories>
+      <pluginRepository>
+    <id>EvoSuite</id>
+    <name>EvoSuite Repository</name>
+    <url>http://www.evosuite.org/m2</url>
+  </pluginRepository>
+  </pluginRepositories>
 
   <profiles>
     <!-- Override the apache-release profile from the parent pom -->
